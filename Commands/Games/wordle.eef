@@ -1,0 +1,4 @@
+
+$.ajax({
+    url: '5_letter_words.csv'
+})
