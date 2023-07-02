@@ -8,9 +8,16 @@ module.exports = {
         option.setName('class')
         .setDescription('Choose the class that you want the wiki page for')
         .setRequired(true)
-        .setAutocomplete(true)
         .addChoices(
-
+            {name: 'Artificer', value: 'artificer'},
+            {name: 'Bard', value: 'bard'},
+            {name: 'Cleric', value: 'cleric'},
+            {name: 'Druid', value: 'druid'},
+            {name: 'Paladin', value: 'paladin'},
+            {name: 'Ranger', value: 'ranger'},
+            {name: 'Sorcerer', value: 'sorcerer'},
+            {name: 'Warlock', value: 'warlock'},
+            {name: 'Wizard', value: 'wizard'}
 
 
         )),
