@@ -21,7 +21,7 @@ module.exports = {
             {name: 'Ranger', value: 'ranger'},
             {name: 'Rogue', value: 'rogue'},
             {name: 'Sorcerer', value: 'sorcerer'},
-            {name: 'warlock', value: 'warlock'},
+            {name: 'Warlock', value: 'warlock'},
             {name: 'Wizard', value: 'wizard'}
 
         )),

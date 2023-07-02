@@ -35,6 +35,8 @@ const client = new Client ({intents: [GatewayIntentBits.Guilds,
     const foldersPath = path.join(__dirname, 'Commands')
     const commandFolders = fs.readdirSync(foldersPath)
     console.log('The commands loading are: ')
+    const {interactionType} = require('discord.js')
+
     for (const folder of commandFolders)
     {
         const commandsPath = path.join(foldersPath, folder)
@@ -56,12 +58,32 @@ const client = new Client ({intents: [GatewayIntentBits.Guilds,
             }
         }
     }
+
+client.on(Events.InteractionCreate, async interaction => {
+    console.log('interaction')
+    if (interaction.isAutocomplete())
+        {
+            console.log('Autocomplete is happening')
+            const newCommand = commandClient.commands.get(interaction.commandName)
+
+            try{
+                console.log("responded")
+            await newCommand.autocomplete(interaction)
+            } catch (error)
+            {
+                console.error('not fucking working')
+            }
+        }
+        else return
+}
+)
+
 client.on(Events.InteractionCreate, async interaction => {
     
     //interaction.reply('loading...')
     //console.log(interaction.commandClient.commands)
     
-   if (!interaction.isChatInputCommand()) return
+   if (!interaction.isChatInputCommand() || interaction.isAutocomplete()) return
    
         
         console.log(interaction.commandName)
@@ -74,8 +96,10 @@ client.on(Events.InteractionCreate, async interaction => {
             return
         }
 
+        
+
         try {
-               await newCommand.execute(interaction)       
+               await newCommand.execute(interaction, client)       
         }
         catch(error) {
             console.error(error)
@@ -94,6 +118,8 @@ client.on(Events.InteractionCreate, async interaction => {
 client.once(Events.ClientReady, c => {
     console.log("Ready");
 })
+
+
 
 client.on('messageCreate', (msg) => {
     if (msg.content.indexOf('shit') > -1)
