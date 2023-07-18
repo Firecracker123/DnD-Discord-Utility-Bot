@@ -9,7 +9,7 @@ module.exports = {
 		var lowestPos = 0
 		let generatedValues = [0, 0, 0, 0]
 		let statTotals = [0,0,0,0,0,0]
-		let outString = 'values are '
+		let outString = 'values are \n'
 
 		for (var i = 0; i < 6; i++)
 		{
@@ -32,7 +32,7 @@ module.exports = {
 					statTotals[i] += generatedValues[j] 
 				}
 			}
-			outString = outString + statTotals[i] + ' '
+			outString = outString + statTotals[i] + ' \n'
 		}
 
 		

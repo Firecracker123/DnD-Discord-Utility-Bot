@@ -72,6 +72,7 @@ client.on(Events.InteractionCreate, async interaction => {
             } catch (error)
             {
                 console.error('not fucking working')
+                console.error(error)
             }
         }
         else return

@@ -3,7 +3,7 @@ const {SlashCommandBuilder} = require('discord.js')
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('getspellinfo')
-    .setDescription('Gets the wikidot page for a DnD class\' spell list')
+    .setDescription('Gets the wikidot page for a spell')
     .addStringOption(option => 
         option.setName('spellname')
         .setDescription('Choose the spell that you want the wiki page for')
@@ -109,6 +109,6 @@ module.exports = {
         {
             var spellName = interaction.options.getString('spellname')
             var url = "http://www.dnd5e.wikidot.com/spell:" + spellName;
-            await interaction.reply(url)
+            await interaction.reply({content: url, ephemeral: true})
         },
 }
