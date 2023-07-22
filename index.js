@@ -6,7 +6,7 @@ const client = new Client ({intents: [GatewayIntentBits.Guilds,
 
     const fs = require('fs')
     const path = require('path')
-    const commandsPath = path.join(__dirname, 'commands');
+    const commandsPath = path.join(__dirname, 'Commands');
     const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('js'))
     
 
